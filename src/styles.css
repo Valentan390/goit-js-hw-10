@@ -1,0 +1,145 @@
+img {
+  display: block;
+  max-width: 100%;
+  border: 1px solid #0d161b;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.breed-select {
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  font-weight: 900;
+  color: #971414;
+  border: 2px solid #0d161b;
+}
+
+.cat-info {
+  max-width: 1000px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  background-color: #eeeef4;
+  border: 1px solid #0d161b;
+}
+
+.box {
+  width: 400px;
+}
+
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 1050px;
+  background: #fff;
+  border: 2px solid #fff;
+  color: red;
+  overflow: hidden;
+}
+.loader::before {
+  content: '';
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  animation: loading 10s linear infinite;
+}
+.loader:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 32px;
+  color: rgb(0, 255, 255);
+  mix-blend-mode: difference;
+  animation: percentage 10s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes percentage {
+  0% {
+    content: '0%';
+  }
+  5% {
+    content: '5%';
+  }
+  10% {
+    content: '10%';
+  }
+  20% {
+    content: '20%';
+  }
+  30% {
+    content: '30%';
+  }
+  40% {
+    content: '40%';
+  }
+  50% {
+    content: '50%';
+  }
+  60% {
+    content: '60%';
+  }
+  70% {
+    content: '70%';
+  }
+  80% {
+    content: '80%';
+  }
+  90% {
+    content: '90%';
+  }
+  95% {
+    content: '95%';
+  }
+  96% {
+    content: '96%';
+  }
+  97% {
+    content: '97%';
+  }
+  98% {
+    content: '98%';
+  }
+  99% {
+    content: '99%';
+  }
+  100% {
+    content: '100%';
+  }
+}
