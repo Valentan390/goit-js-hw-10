@@ -9,17 +9,17 @@ const loaderEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 const catInfoEl = document.querySelector('.cat-info');
 
-errorEl.classList.add('is-hidden');
+errorEl.classList.replace('error','is-hidden');
 catInfoEl.classList.add('is-hidden');
 selectEl.classList.add('is-hidden');
 
 
 let arrBreedsId = [{placeholder: true, text: ''}];
-console.log(arrBreedsId)
+
 fetchBreeds()
     .then(data => {
-    console.log(data)
-        loaderEl.classList.add('is-hidden');
+    
+        loaderEl.classList.replace('loader','is-hidden');
         selectEl.classList.remove('is-hidden');
 
 
@@ -30,7 +30,7 @@ fetchBreeds()
             new SlimSelect({
             select: selectEl,
             settings: {
-                placeholderText: 'Select the cat breed from the drop-down list',
+                placeholderText: 'Choose a cat breed',
                 allowDeselect: true 
             },
             data: arrBreedsId
@@ -47,11 +47,11 @@ selectEl.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
 
-    if (event.currentTarget.value === '') {
+    if (event.target.value === '') {
         catInfoEl.classList.add('is-hidden');
         return
     }
-        let breedId = event.currentTarget.value;    
+        let breedId = event.target.value;    
 
     loaderEl.classList.replace('is-hidden', 'loader');
     selectEl.classList.add('is-hidden');
@@ -59,7 +59,7 @@ function onSelectBreed(event) {
         
     fetchCatByBreed(breedId)
         .then(data => {
-            console.log(data[0])
+            
         loaderEl.classList.replace('loader', 'is-hidden');
         selectEl.classList.remove('is-hidden');
         catInfoEl.classList.remove('is-hidden');
@@ -85,8 +85,9 @@ function onSelectBreed(event) {
 function onFetchError(error) {
 
     selectEl.classList.add('is-hidden');
-    loaderEl.classList.add('is-hidden');
+    loaderEl.classList.replace('loader','is-hidden');
     catInfoEl.classList.add('is-hidden');
+    
     
     Notify.failure('Oops! Something went wrong! Try reloading the page!', { position: 'center-top',
         timeout: 100000,
